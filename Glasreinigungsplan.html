@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Glasreinigung">
+<meta name="theme-color" content="#13283A">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFXElEQVR4nO3dv24cVRzF8TurUV6AijdAMoKV0lERpaCOQK6wadkHIC4Ap7Z5gLT8qWJCQ0fhmIounbfjCXgEhAjFahXL7J/ZO3Pnnt+Z70eaAkWsrndPDifXVmjeee+jNwkwMat9AGBIBBpW2pSa2mcABtOSZzihoWGFDQ0rTA5YYXLACpMDVmhoWGFDwwoNDStsaFhhcsAKkwNWmBywQkPDChsaVmhoWGFDwwqTA1aYHLDSEmc4oaFhhQ0NKzQ0rHBtBytMDlhhcsAKkwNWaGhYYUPDCg0NK2xoWGFywAqTA1aYHLBi0dDL338p9toP2vzf82dXr7f+2sXxw+zX/fuff7P/3X2OPv602GuPIeyGXt6UC3FK/YIc2d1yOHoUL9yzVUPHekqG+UE7kw5zyXa+b/U+1/+8D3naMm9FGcubl8VeWznENa3f86NHn1U+STczgd9UnZ5SYVZv5LvGbOf7ljcvq2egyxNicixflQszult9DvXzsOsJNTmGEjHINds5krZpmtpn2On2+mqw14oYZDXLVz+n9x8f1z7GVtKf8FBhjrSTN1Fr5yFLZmgW31jZJnKI9WnmxnJDE+Tpkr22u71+cfAXE31abKI2N9Zur19Uz8imx2JyuIU4Dr3shJ4c7kFWbWdlbRK/ttvGPcwhCGYnXENPJci0c54wG3oqQY5FLzvyDT3FINPO+WR/wH+KQQ5HMDthJgcU6WWHGhTD3Ogn7LUdBAhmh4YWQjv3x4ZGD3rZoaFF0M7DkL22QwCC2WFyCIjbznrZYXLACtd2yCeYHRq6srhzQ1PbCO4gxKCYHRq6Itp5eFzbIZ9gdri2q8SjnfWyw+SAFa7tkE8wOzR0BX/8+VftI9hiQ6MHvezQ0COjncvi2g75BLPD5BiRXzvrZYfJAStc243Er50T13ZAaWxo9KCXHRp6BJZzQxTXdsgnmB0mR2He7ayXHSYHrMhe251dva59hN52tfPjy99GPEkhgtmhoWGFDV2I93Ze08tOK/hfDQShmB0mB6wwOQqYxtxISTE7NDSsyF7bXRw/rH2ELHf/eoJdV3PXTz8Z4zhFffDk19pH+B8aGlbY0APy+MtjDqGXHX44CfkEs8PkGMj02lkTkwM96GWHhoYV2Wu7SCY7NwSzQ0PDChu6p8m2c0pJMTtc2yGfYHaYHD1Mu501MTnQg152aOhMtLMmru2QTzA7NDSssKEzMDfW9LLDtR3yCWaHyXEg2lkb//N6ZFPMDg19ANpZH9d2yCeYHRq6I9o5Bq7t0INedri2Qz7B7DA5OmBuxMHkQA962aGh96CdY+HaDvkEs0ND70A7x8OGRg962eHaDvkEs8Pk2IK5EROTAz3oZYeG3oB2jotrO+QTzA4NfQ/tHBsbGj3oZWeWmpQUny8vvi/5dW9EO3f34edfV8/IpofJAStMDmTSzM2saVZ/WJV7UkqLEWcHc6O7+ck39fOx5ZlVHz17nsXFDwU/GhxqfvJtqp2JXQ8bOtHOTuQbetXSP5Z7B9DZ/OQ81c7C/oauf4ZOz+KyTKhp527mp+fVM9Dlacu9BcNbh/r509PKJ5mO+el57SMcJMTkuP8sLn8a5IunnXebnz5LtT/rQx/dH/Dfc67Fd29D/fyrk8KHmY75F8/e/oNqNnZo3n1y9qb2IYChcG0HK3zrG1Z0NzSQgckBK0wOWGFywAoNDStsaFihoWGFDQ0rTA5YYXLACpMDVmhoWGmJM5zQ0LDChoYVru1ghckBK0wOWKGhYYUNDSs0NKywoWGFyQErTA5YYXLACg0NK2xoWKGhYYUNDStMDlhhcsAKkwNWaGhYYUPDyn8RXd6y4XmdmQAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFXElEQVR4nO3dv24cVRzF8TurUV6AijdAMoKV0lERpaCOQK6wadkHIC4Ap7Z5gLT8qWJCQ0fhmIounbfjCXgEhAjFahXL7J/ZO3Pnnt+Z70eaAkWsrndPDifXVmjeee+jNwkwMat9AGBIBBpW2pSa2mcABtOSZzihoWGFDQ0rTA5YYXLACpMDVmhoWGFDwwoNDStsaFhhcsAKkwNWmBywQkPDChsaVmhoWGFDwwqTA1aYHLDSEmc4oaFhhQ0NKzQ0rHBtBytMDlhhcsAKkwNWaGhYYUPDCg0NK2xoWGFywAqTA1aYHLBi0dDL338p9toP2vzf82dXr7f+2sXxw+zX/fuff7P/3X2OPv602GuPIeyGXt6UC3FK/YIc2d1yOHoUL9yzVUPHekqG+UE7kw5zyXa+b/U+1/+8D3naMm9FGcubl8VeWznENa3f86NHn1U+STczgd9UnZ5SYVZv5LvGbOf7ljcvq2egyxNicixflQszult9DvXzsOsJNTmGEjHINds5krZpmtpn2On2+mqw14oYZDXLVz+n9x8f1z7GVtKf8FBhjrSTN1Fr5yFLZmgW31jZJnKI9WnmxnJDE+Tpkr22u71+cfAXE31abKI2N9Zur19Uz8imx2JyuIU4Dr3shJ4c7kFWbWdlbRK/ttvGPcwhCGYnXENPJci0c54wG3oqQY5FLzvyDT3FINPO+WR/wH+KQQ5HMDthJgcU6WWHGhTD3Ogn7LUdBAhmh4YWQjv3x4ZGD3rZoaFF0M7DkL22QwCC2WFyCIjbznrZYXLACtd2yCeYHRq6srhzQ1PbCO4gxKCYHRq6Itp5eFzbIZ9gdri2q8SjnfWyw+SAFa7tkE8wOzR0BX/8+VftI9hiQ6MHvezQ0COjncvi2g75BLPD5BiRXzvrZYfJAStc243Er50T13ZAaWxo9KCXHRp6BJZzQxTXdsgnmB0mR2He7ayXHSYHrMhe251dva59hN52tfPjy99GPEkhgtmhoWGFDV2I93Ze08tOK/hfDQShmB0mB6wwOQqYxtxISTE7NDSsyF7bXRw/rH2ELHf/eoJdV3PXTz8Z4zhFffDk19pH+B8aGlbY0APy+MtjDqGXHX44CfkEs8PkGMj02lkTkwM96GWHhoYV2Wu7SCY7NwSzQ0PDChu6p8m2c0pJMTtc2yGfYHaYHD1Mu501MTnQg152aOhMtLMmru2QTzA7NDSssKEzMDfW9LLDtR3yCWaHyXEg2lkb//N6ZFPMDg19ANpZH9d2yCeYHRq6I9o5Bq7t0INedri2Qz7B7DA5OmBuxMHkQA962aGh96CdY+HaDvkEs0ND70A7x8OGRg962eHaDvkEs8Pk2IK5EROTAz3oZYeG3oB2jotrO+QTzA4NfQ/tHBsbGj3oZWeWmpQUny8vvi/5dW9EO3f34edfV8/IpofJAStMDmTSzM2saVZ/WJV7UkqLEWcHc6O7+ck39fOx5ZlVHz17nsXFDwU/GhxqfvJtqp2JXQ8bOtHOTuQbetXSP5Z7B9DZ/OQ81c7C/oauf4ZOz+KyTKhp527mp+fVM9Dlacu9BcNbh/r509PKJ5mO+el57SMcJMTkuP8sLn8a5IunnXebnz5LtT/rQx/dH/Dfc67Fd29D/fyrk8KHmY75F8/e/oNqNnZo3n1y9qb2IYChcG0HK3zrG1Z0NzSQgckBK0wOWGFywAoNDStsaFihoWGFDQ0rTA5YYXLACpMDVmhoWGmJM5zQ0LDChoYVru1ghckBK0wOWKGhYYUNDSs0NKywoWGFyQErTA5YYXLACg0NK2xoWKGhYYUNDStMDlhhcsAKkwNWaGhYYUPDyn8RXd6y4XmdmQAAAABJRU5ErkJggg==">
+<title>Glasreinigungsplan 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAF0F3; --surface:#fff; --ink:#13283A; --ink-soft:#46606F; --line:#D5DEE4;
+  --accent:#2C7CB0; --accent-deep:#1B5C87;
+  --red:#B23A2E; --red-bg:#FBE7E4;
+  --amber:#956512; --amber-bg:#FAEFD3;
+  --green:#2C7A39; --green-bg:#E0F0E2;
+  --grey:#5C6B78; --grey-bg:#E5EBEE;
+  --shadow:0 1px 2px rgba(19,40,58,.06),0 6px 20px rgba(19,40,58,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.45;
+  padding:0 0 64px;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* ---------- Header ---------- */
+header{
+  background:linear-gradient(115deg,#13283A 0%,#1B5C87 78%,#2C7CB0 130%);
+  color:#fff;position:relative;overflow:hidden;
+}
+header::after{ /* dezenter Glas-Glanz */
+  content:"";position:absolute;top:-40%;left:-10%;width:55%;height:200%;
+  background:linear-gradient(105deg,rgba(255,255,255,.12),rgba(255,255,255,0) 60%);
+  transform:rotate(8deg);pointer-events:none;
+}
+.head-inner{max-width:1180px;margin:0 auto;padding:calc(30px + env(safe-area-inset-top)) 16px 26px;position:relative;z-index:1}
+.eyebrow{font-family:'Space Grotesk';font-weight:600;font-size:.74rem;letter-spacing:.18em;
+  text-transform:uppercase;color:#9FD0EA;margin-bottom:8px}
+h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(1.7rem,4.5vw,2.5rem);
+  letter-spacing:-.01em;line-height:1.05}
+.sub{margin-top:10px;color:#CFE2EE;font-size:.95rem;max-width:60ch}
+.stand{margin-top:16px;display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.12);padding:6px 12px;border-radius:999px;
+  font-size:.82rem;font-weight:500}
+.stand b{font-family:'Space Grotesk'}
+
+/* ---------- KPI Kacheln ---------- */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:-26px 0 22px;position:relative;z-index:2}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;
+  box-shadow:var(--shadow);cursor:pointer;text-align:left;transition:transform .12s ease,box-shadow .12s ease;
+  border-left:5px solid var(--line)}
+.tile:hover{transform:translateY(-2px)}
+.tile:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tile .num{font-family:'Space Grotesk';font-weight:700;font-size:2.1rem;line-height:1}
+.tile .lab{font-size:.82rem;color:var(--ink-soft);margin-top:6px;font-weight:500}
+.tile[data-k="rot"]{border-left-color:var(--red)} .tile[data-k="rot"] .num{color:var(--red)}
+.tile[data-k="gelb"]{border-left-color:var(--amber)} .tile[data-k="gelb"] .num{color:var(--amber)}
+.tile[data-k="gruen"]{border-left-color:var(--green)} .tile[data-k="gruen"] .num{color:var(--green)}
+.tile[data-k="offen"]{border-left-color:var(--grey)} .tile[data-k="offen"] .num{color:var(--grey)}
+.tile.active{box-shadow:0 0 0 2px var(--accent),var(--shadow)}
+
+/* ---------- Toolbar ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.search{flex:1 1 220px;position:relative;min-width:180px}
+.search input{width:100%;padding:10px 12px 10px 36px;border:1px solid var(--line);border-radius:10px;
+  font:inherit;background:var(--surface);color:var(--ink)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.5}
+.btn{font:inherit;font-weight:500;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  padding:10px 14px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
+  transition:background .12s}
+.btn:hover{background:#F3F7F9}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn.primary{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep)}
+.btn.primary:hover{background:#15507a}
+.btn svg{width:16px;height:16px}
+.filter-note{font-size:.82rem;color:var(--ink-soft);margin-left:auto}
+.filter-note a{color:var(--accent-deep);cursor:pointer;text-decoration:underline}
+
+/* ---------- Tabelle ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+thead th{background:#13283A;color:#fff;font-family:'Space Grotesk';font-weight:600;font-size:.72rem;
+  letter-spacing:.02em;text-transform:uppercase;text-align:left;padding:13px 9px;white-space:nowrap;
+  position:sticky;top:0;cursor:pointer;user-select:none}
+thead th.no-sort{cursor:default}
+thead th .arr{opacity:.4;font-size:.7rem;margin-left:3px}
+thead th.sorted .arr{opacity:1}
+tbody td{padding:9px 9px;border-top:1px solid var(--line);vertical-align:middle}
+tbody tr:nth-child(even){background:#F7FAFB}
+tbody tr.rowstat-rot{box-shadow:inset 4px 0 0 var(--red)}
+tbody tr.rowstat-gelb{box-shadow:inset 4px 0 0 var(--amber)}
+tbody tr.rowstat-gruen{box-shadow:inset 4px 0 0 var(--green)}
+tbody tr.rowstat-offen{box-shadow:inset 4px 0 0 var(--grey)}
+.nr{color:var(--ink-soft);font-variant-numeric:tabular-nums;font-size:.82rem}
+.addr{color:var(--ink-soft);font-size:.82rem;max-width:340px}
+.next{font-variant-numeric:tabular-nums;font-weight:500}
+.days{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.pill{display:inline-block;font-weight:600;font-size:.78rem;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pill.rot{background:var(--red-bg);color:var(--red)}
+.pill.gelb{background:var(--amber-bg);color:var(--amber)}
+.pill.gruen{background:var(--green-bg);color:var(--green)}
+.pill.offen{background:var(--grey-bg);color:var(--grey)}
+
+/* Inline-Eingaben: sehen wie Text aus, werden beim Fokus zur Eingabe */
+.cell-in{font:inherit;color:var(--ink);border:1px solid transparent;border-radius:7px;
+  padding:5px 7px;width:100%;background:transparent;transition:border-color .1s,background .1s}
+.cell-in:hover{border-color:var(--line)}
+.cell-in:focus{outline:none;border-color:var(--accent);background:#F4FAFD}
+input.name{font-weight:600;min-width:132px}
+input[type=date].cell-in{font-variant-numeric:tabular-nums;min-width:124px}
+.datewrap{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.save-date{border:none;background:var(--green);color:#fff;cursor:pointer;font:inherit;font-size:.78rem;
+  font-weight:600;padding:5px 11px;border-radius:8px;flex:0 0 auto}
+.save-date:hover{background:#256a30}
+.save-date:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+.save-date[hidden]{display:none}
+.clear-date{border:none;background:none;color:#AEB9C2;cursor:pointer;font-size:.95rem;line-height:1;
+  padding:5px 7px;border-radius:6px;flex:0 0 auto}
+.clear-date:hover{color:var(--red);background:var(--red-bg)}
+.clear-date:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.clear-date[hidden]{display:none}
+select.cell-in{cursor:pointer;min-width:84px}
+textarea.addr-in{font:inherit;font-size:.82rem;color:var(--ink-soft);resize:vertical;min-height:30px;
+  white-space:normal;overflow:hidden;min-width:170px;
+  border:1px solid transparent;border-radius:7px;padding:5px 7px;width:100%;background:transparent}
+textarea.addr-in:hover{border-color:var(--line)}
+textarea.addr-in:focus{outline:none;border-color:var(--accent);background:#F4FAFD}
+.del{background:none;border:none;color:#B9C3CB;cursor:pointer;padding:4px;border-radius:6px;line-height:0}
+.del:hover{color:var(--red);background:var(--red-bg)}
+.empty{padding:36px;text-align:center;color:var(--ink-soft)}
+
+/* ---------- Monatsliste ---------- */
+.monthcard{margin-top:18px}
+.monthcard[hidden]{display:none}
+.monthhead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 16px;border-bottom:1px solid var(--line)}
+.monthnav{display:flex;align-items:center;gap:8px}
+.monthnav h2{font-family:'Space Grotesk';font-size:1.1rem;color:var(--ink);min-width:150px;text-align:center}
+.navbtn{border:1px solid var(--line);background:#fff;border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:1.2rem;color:var(--ink);line-height:1}
+.navbtn:hover{background:#F3F7F9}
+.navbtn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+#month-count{font-size:.82rem;color:var(--ink-soft)}
+#month-print{margin-left:auto}
+.monthtable{width:100%;border-collapse:collapse;font-size:.9rem}
+.monthtable th{text-align:left;font-family:'Space Grotesk';font-size:.72rem;text-transform:uppercase;
+  letter-spacing:.03em;color:var(--ink-soft);padding:10px 12px;border-bottom:1px solid var(--line)}
+.monthtable td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.monthtable .grp td{background:#EEF3F6;font-weight:700;font-family:'Space Grotesk';color:var(--ink);font-size:.82rem;letter-spacing:.02em}
+.monthtable .grp.over td{color:var(--red);background:var(--red-bg)}
+.box{display:inline-block;width:16px;height:16px;border:1.5px solid #94A3AE;border-radius:3px}
+.m-name{font-weight:600}
+.m-addr{color:var(--ink-soft);font-size:.82rem;max-width:360px}
+.m-date{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:500}
+.m-done{min-width:120px}
+.monthempty{padding:26px 16px;color:var(--ink-soft)}
+.print-only{display:none}
+#month-printhead{font-family:'Space Grotesk';font-weight:700;font-size:1.2rem;color:var(--ink);margin-bottom:6px}
+@media(max-width:760px){.m-addr{max-width:none}}
+
+footer{max-width:1180px;margin:22px auto 0;padding:0 16px;color:var(--ink-soft);font-size:.8rem;text-align:center}
+.footnote{max-width:60ch;margin:0 auto 12px;line-height:1.5}
+.footbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.btn.small{padding:7px 12px;font-size:.84rem}
+.btn.small svg{width:15px;height:15px}
+.btn.ghost{background:none;border-color:transparent;color:var(--accent-deep);text-decoration:underline}
+.btn.ghost:hover{background:#EEF3F6}
+
+/* ---------- Verlauf (Logbuch) ---------- */
+.logcard{margin-top:18px}
+.logcard[hidden]{display:none}
+.loghead{display:flex;align-items:baseline;gap:10px;padding:16px 16px 4px;border-bottom:1px solid var(--line)}
+.loghead h2{font-family:'Space Grotesk';font-size:1.05rem;color:var(--ink)}
+.loghead span{font-size:.82rem;color:var(--ink-soft)}
+.loghead #log-filter{margin-left:auto;font:inherit;font-size:.85rem;padding:6px 10px;border:1px solid var(--line);
+  border-radius:9px;background:#fff;color:var(--ink);cursor:pointer;max-width:55%}
+.cleancount{display:block;margin-top:2px;font-size:.72rem;color:var(--accent-deep);background:none;border:none;
+  padding:1px 0;cursor:pointer;font-family:inherit;text-align:left}
+.cleancount:hover{text-decoration:underline}
+.cleancount:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+#logbody{padding:4px 16px 12px}
+.logitem{display:flex;align-items:center;gap:14px;padding:11px 0;border-top:1px solid var(--line)}
+.logitem:first-child{border-top:none}
+.logitem .ldate{font-family:'Space Grotesk';font-weight:600;font-variant-numeric:tabular-nums;min-width:104px}
+.logitem .lname{font-weight:600}
+.logitem .lnote{color:var(--ink-soft);font-size:.86rem;flex:1}
+.logitem .del{margin-left:auto}
+.logempty{color:var(--ink-soft);padding:14px 0}
+@media(max-width:760px){
+  .logitem{flex-wrap:wrap;gap:4px 14px}
+  .logitem .lnote{flex:1 0 100%}
+}
+
+/* ---------- Modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(19,40,58,.45);display:flex;align-items:center;
+  justify-content:center;padding:16px;z-index:50}
+.overlay[hidden]{display:none}
+.modal{background:#fff;border-radius:16px;box-shadow:0 24px 70px rgba(19,40,58,.35);width:100%;
+  max-width:430px;padding:24px 24px 20px;animation:pop .14s ease}
+@keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+.modal h2{font-family:'Space Grotesk';font-size:1.3rem;margin-bottom:18px;color:var(--ink)}
+.modal label{display:block;font-size:.82rem;font-weight:600;color:var(--ink-soft);margin-bottom:14px}
+.modal label input,.modal label select{display:block;width:100%;margin-top:6px;padding:11px 12px;
+  border:1px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}
+.modal label input:focus,.modal label select:focus{outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(44,124,176,.18)}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:4px}
+.btn.danger{background:var(--red);color:#fff;border-color:var(--red)}
+.btn.danger:hover{background:#922f25}
+.confirm-msg{color:var(--ink-soft);font-size:.92rem;line-height:1.45;margin:-8px 0 20px}
+
+/* ---------- Mobil: Tabelle -> Karten ---------- */
+@media(max-width:760px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tbody tr{border-top:1px solid var(--line);padding:10px 12px 12px;background:#fff!important}
+  tbody tr:nth-child(even){background:#fff}
+  tbody td{border:none;padding:4px 0;display:grid;grid-template-columns:9.5rem 1fr;gap:8px;align-items:center}
+  tbody td::before{content:attr(data-label);font-size:.74rem;font-weight:600;color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:.03em}
+  .addr,.addr-in{max-width:none}
+  td.td-del{display:flex;justify-content:flex-end}
+  td.td-del::before{content:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- Druck ---------- */
+@media print{
+  body{background:#fff;padding:0}
+  header::after,.toolbar,.del,.tile{box-shadow:none}
+  .toolbar{display:none}.tile{cursor:default}
+  header{background:#13283A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.tile,thead th,.pill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cell-in,.addr-in,select.cell-in{border:none!important;background:none!important}
+  .kpis{margin-top:14px}
+  /* Wenn nur die Monatsliste gedruckt wird */
+  body.print-month header,body.print-month .wrap>*{display:none!important}
+  body.print-month #monthcard{display:block!important;border:none;box-shadow:none;margin:0}
+  body.print-month .monthhead{border:none;padding:0 0 6px}
+  body.print-month .navbtn,body.print-month #month-print,body.print-month #month-count{display:none!important}
+  body.print-month .print-only{display:block}
+  body.print-month .monthnav h2{display:none}
+  body.print-month .box,body.print-month .monthtable .grp td{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <div class="eyebrow">Objektübersicht München · Glasreinigung</div>
+    <h1>Glasreinigungsplan 2026</h1>
+    <p class="sub">Alle Objekte auf einen Blick. Trage die letzte Reinigung ein – nächster Termin, Tage bis fällig und Status rechnen sich von selbst.</p>
+    <div class="stand">Stand heute: <b id="stand"></b></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="kpis" id="kpis">
+    <button class="tile" data-k="rot"   data-filter="rot"><div class="num" id="c-rot">0</div><div class="lab">Überfällig</div></button>
+    <button class="tile" data-k="gelb"  data-filter="gelb"><div class="num" id="c-gelb">0</div><div class="lab">Bald fällig · ≤ 30 Tage</div></button>
+    <button class="tile" data-k="gruen" data-filter="gruen"><div class="num" id="c-gruen">0</div><div class="lab">Aktuell · alles ok</div></button>
+    <button class="tile" data-k="offen" data-filter="offen"><div class="num" id="c-offen">0</div><div class="lab">Noch offen</div></button>
+  </div>
+
+  <div class="toolbar">
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="search" placeholder="Objekt oder Adresse suchen…" autocomplete="off">
+    </div>
+    <button class="btn primary" id="logBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Reinigung eintragen</button>
+    <button class="btn" id="add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Objekt</button>
+    <button class="btn" id="logToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg>Verlauf</button>
+    <button class="btn" id="monthBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>Monatsliste</button>
+    <button class="btn" id="print"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>Drucken</button>
+    <span class="filter-note" id="fnote"></span>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th class="no-sort">Nr.</th>
+          <th data-sort="name">Objekt <span class="arr"></span></th>
+          <th class="no-sort">Adresse / Standort</th>
+          <th data-sort="turnus">Turnus <span class="arr"></span></th>
+          <th data-sort="last">Letzte Reinigung <span class="arr"></span></th>
+          <th data-sort="next">Nächste Reinigung <span class="arr"></span></th>
+          <th data-sort="days">Tage bis fällig <span class="arr"></span></th>
+          <th data-sort="statusOrder">Status <span class="arr"></span></th>
+          <th class="no-sort">Bemerkung</th>
+          <th class="no-sort"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">Keine Objekte gefunden.</div>
+  </div>
+
+  <section class="card logcard" id="logcard" hidden>
+    <div class="loghead">
+      <h2>Verlauf der Reinigungen</h2>
+      <span id="logcount"></span>
+      <select id="log-filter" aria-label="Verlauf nach Objekt filtern"></select>
+    </div>
+    <div id="logbody"></div>
+  </section>
+
+  <section class="card monthcard" id="monthcard" hidden>
+    <div id="month-printhead" class="print-only"></div>
+    <div class="monthhead">
+      <div class="monthnav">
+        <button class="navbtn" id="month-prev" type="button" aria-label="Vorheriger Monat">‹</button>
+        <h2 id="month-title">—</h2>
+        <button class="navbtn" id="month-next" type="button" aria-label="Nächster Monat">›</button>
+      </div>
+      <span id="month-count"></span>
+      <button class="btn small" id="month-print" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>Liste drucken</button>
+    </div>
+    <div id="month-body"></div>
+  </section>
+
+  <footer>
+    <div class="footnote">Deine Eingaben werden automatisch in <b>diesem Browser auf diesem Gerät</b> gespeichert. Für ein Backup oder den Wechsel auf ein anderes Gerät: sichern und dort laden.</div>
+    <div class="footbar">
+      <button class="btn small" id="export"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Backup sichern</button>
+      <button class="btn small" id="import"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21V9m0 0l-4 4m4-4l4 4M5 3h14"/></svg>Backup laden</button>
+      <button class="btn small ghost" id="reset">Auf Ausgangsdaten zurücksetzen</button>
+    </div>
+    <input type="file" id="import-file" accept="application/json,.json" hidden>
+  </footer>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+    <h2 id="mtitle">Reinigung eintragen</h2>
+    <label>Objekt
+      <select id="m-obj"></select>
+    </label>
+    <label>Datum der Reinigung
+      <input type="date" id="m-date">
+    </label>
+    <label>Bemerkung (optional)
+      <input type="text" id="m-note" placeholder="z. B. Team, Steiger, Auftragsnummer">
+    </label>
+    <div class="modal-actions">
+      <button class="btn" id="m-cancel">Abbrechen</button>
+      <button class="btn primary" id="m-save">Eintragen</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="confirm-overlay" hidden>
+  <div class="modal confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <h2 id="confirm-title">Wirklich löschen?</h2>
+    <p class="confirm-msg" id="confirm-msg"></p>
+    <div class="modal-actions">
+      <button class="btn" id="confirm-no">Abbrechen</button>
+      <button class="btn danger" id="confirm-yes">Löschen</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DEFAULTS = [
+  ["O001","PRS",3,"2026-03-23","","Prinzregentenstr. 75 – 89, Lamontstr. 1 – 3, Schuhmannstr. 2 – 10, Geiblstr. 8, München"],
+  ["O002","Gilchinger",4,"","Fensterschlüssel","Hohenrechbergstr. 7, 9, Wildenrotherstr. 15, 17, 19, Altostr. 57, 59, 65, 67, Gilchinger Str. 3 – 13, 4 – 10, 14 – 24, München"],
+  ["O003","Fries & Co.",6,"","","St.-Cajetan-Str. 26–38, Grimmeisenstr. 7–13, Trockenstädelweg 4–12, Ainmillerstr. 28, Lily-Braun-Weg 2–8, Helene-Weber-Allee 10–18, Erich-Kästner-Str. 17,17a,19, Jakob-Klar-Str. 8, Schönfeldstr. 13,13b, Zentnerstr. 18, München"],
+  ["O004","Sofiastr",6,"","","Flughafen-Riem-Str. 41 – 47, Sofiastr. 4, 6, 8, Kopenhagenstr. 15, 17, München"],
+  ["O005","Giechstr",6,"","","Giechstr. 41 – 63, Heckenhoferstr. 8 – 16, Kühlenfelserstr. 8 – 12, 24, 32, Ehrenbürgstr. 11 – 31, München"],
+  ["O006","ALDI",6,"","","BV ALDI Centar, Baumkirchnerstr. 55, München"],
+  ["O007","Schwansee",12,"","","Schwanseestr. 71a, München"],
+  ["O008","Hansastr",6,"","","Hansastr. 8 – 8i, München"],
+  ["O009","Federsee",6,"","Steiger?","Federseestraße 4, 6, Henschelstraße 17, München"],
+  ["O010","Wallbergstr",6,"","","Wallbergstraße 10–38, München"],
+  ["O011","Moosacherstr",6,"2026-03-27","","Moosacher Straße 67, 69, München"],
+  ["O012","Haar Objekte 089",6,"2026-04-23","","Casinostr. 5 – 7, 85540 Haar, Apfelwiese 1 – 17, Max-Isserlin-Straße 15, Vockestr. 78 – 82, Vockestr. 67, 85540 Haar"],
+  ["O013","Belgradstr",6,"","","Barlachstr. 6, Belgradstr. 162"],
+  ["O014","Hanselmannstr",6,"2026-03-27","","Hanselmannstr. 28–34b"],
+  ["O015","Jaffee",6,"","","Franz-Josef-Str. 8, Leopoldstr. 18, Wilhelmstr. 2, München"],
+  ["O016","RSS",6,"","","Richard-Strauss-Str. 9, 9a, 11, 15, 7, 19, 29, Lisztstr. 27, Richard-Strauss-Str. 45 – 55, Ärztehaus Richard-Strauss-Str. 45, 81677 München"],
+  ["O017","Fürstenrieder",null,"","extra bezahlt","Fürstenrieder Straße 263, 267"],
+  ["O018","Bonn Elektronik Brünner",12,"2026-05-21","Steiger und extra Auftrag","Ohmstr. 11, 83607 Holzkirchen"],
+  ["O019","Ridlerstr i Lothstr",6,"2026-04-20","","Ridlerstr. 31 – 31d, München"],
+  ["O021","Effnerstr",6,"2026-05-04","","Effnerstr. 80 – 86, 94 – 98"],
+  ["O022","Widmann",6,"","","Widmannstr. 6 – 32, 36 – 44, Riemerstr. 367 – 383, München"],
+  ["O023","Solothurner",6,"","","Solothurnerstr. 74 – 120, 81475 München"],
+  ["O024","Buchloer",6,"","","Kemptenerstr. 12 – 48, Buchloerstr. 3 – 9, München"],
+  ["O025","Fischer",6,"","","Fischer-Von-Erlach 9, 11, 15, 17, 19, 25, 27"],
+  ["O026","Werner-Schlierf",6,"2026-03-25","","Werner-Schlierf-Str. 13 –27, München"],
+  ["O027","Görzer Puechberger",6,"2026-04-17","","Görzerstr. 75–93, Puechbergerstr. 28–36"],
+  ["O028","Jörg Hube",6,"","","Jörg-Hube-Str. 33–39"],
+  ["O029","Knorrstr",6,"","","Knorrstr. 16, Schopenhauerstr. 45, 47, München"],
+  ["O030","Ruth-Drexel",6,"","","Ruth-Drexel-Straße 7, 9, 11, 13, 17, 81927 München"],
+  ["O031","Gollierstr",6,"","","Gollierstr. 65, 71, 73, 80339 München"],
+  ["O032","Leo Gratz",6,"","","Schuckertstr. 1 – 13, 2 – 14, Leo-Graetz-Str. 1 – 9, 4 – 16, Halskestr. 1 – 11, Zielstattstr. 121 – 147"],
+  ["O033","Rosenheimerstr 52",3,"2026-04-24","","Rosenheimerstr. 52, Gallmayerstr. 12"],
+  ["O034","Katarina von Bora i Dante",6,"","","Katarina-von-Bora-Straße 8b, 8d, 8e, 8f, Dantestraße 4, München"],
+  ["O035","Boschetsriederstr",6,"","Kellerfenster","Boschetsriederstr. 13, 15, 17, München"],
+  ["O036","Appenzellerstr",3,"","Abnahmeschein, extra RE","Appenzeller i Bellinzonastr"],
+  ["O037","Mathilde-Berghofener",6,"2026-04-16","","Mathilde-Berghofer-Weichner-Str. 11 – 21, Fritz-Bauer-Straße 32 – 38"],
+  ["O038","Lucia-Popp",6,"","Vordächer","Lucia-Popp-Bogen 20 – 28, Josephine-Lang-Weg 1 – 9, München"],
+  ["O039","Hermann-Weinhauser",6,"","","Hermann-Weinhauser-Str. 61 – 67, München"],
+  ["O040","Resi-Huber-Platz",6,"","","Resi-Huber-Platz 1"],
+].map(([id,name,turnus,last,note,addr])=>({id,name,turnus,last,note,addr}));
+
+const KEY="glasplan_v2";
+let data, log, seeded;
+(function(){
+  const o=load();data=o.data;log=o.log;seeded=o.seeded;
+  // Verlauf einmalig aus bereits eingetragenen Reinigungen befüllen
+  if(!seeded){
+    data.forEach(o=>{if(o.last&&!log.some(e=>e.id===o.id&&e.date===o.last))log.push({id:o.id,name:o.name,date:o.last,note:""});});
+    seeded=true;save();
+  }
+})();
+let state={filter:"all",search:"",sortKey:"days",sortDir:1};
+
+function load(){
+  try{const s=localStorage.getItem(KEY);if(s){const o=JSON.parse(s);return{data:o.data||[],log:o.log||[],seeded:!!o.seeded};}}catch(e){}
+  try{const s1=localStorage.getItem("glasplan_v1");if(s1)return{data:JSON.parse(s1),log:[],seeded:false};}catch(e){}
+  return{data:JSON.parse(JSON.stringify(DEFAULTS)),log:[],seeded:false};
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({data,log,seeded}));}catch(e){}}
+
+// Verlaufseintrag hinzufügen (ohne Dubletten je Objekt+Datum)
+function addLogEntry(obj,date,note){
+  if(!date)return;
+  if(log.some(e=>e.id===obj.id&&e.date===date)){
+    if(note){const ex=log.find(e=>e.id===obj.id&&e.date===date);if(ex&&!ex.note)ex.note=note;}
+    return;
+  }
+  log.push({id:obj.id,name:obj.name,date,note:note||""});
+}
+// Verlaufseintrag für ein Objekt+Datum entfernen
+function removeLogEntry(id,date){
+  for(let i=log.length-1;i>=0;i--){if(log[i].id===id&&log[i].date===date)log.splice(i,1);}
+}
+
+const MON=["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+const MONFULL=["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+let monthDate=(()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(),1);})();
+const today=new Date();today.setHours(0,0,0,0);
+document.getElementById("stand").textContent=fmt(today);
+
+function fmt(d){return String(d.getDate()).padStart(2,"0")+"."+String(d.getMonth()+1).padStart(2,"0")+"."+d.getFullYear();}
+function parse(s){if(!s)return null;const[y,m,d]=s.split("-").map(Number);const dt=new Date(y,m-1,d);dt.setHours(0,0,0,0);return dt;}
+function addMonths(dt,m){
+  const day=dt.getDate();
+  const r=new Date(dt.getFullYear(),dt.getMonth()+m,1);
+  const last=new Date(r.getFullYear(),r.getMonth()+1,0).getDate();
+  r.setDate(Math.min(day,last));r.setHours(0,0,0,0);return r;
+}
+function compute(o){
+  const last=parse(o.last);
+  let next=null,days=null,status="offen",label="Noch offen",order=4;
+  if(!last||!o.turnus){status="offen";label=last&&!o.turnus?"Turnus fehlt":"Noch nie gereinigt";order=4;}
+  else{
+    next=addMonths(last,Number(o.turnus));
+    days=Math.round((next-today)/86400000);
+    if(days<0){status="rot";label="Überfällig";order=1;}
+    else if(days<=30){status="gelb";label="Bald fällig";order=2;}
+    else{status="gruen";label="Aktuell";order=3;}
+  }
+  return{...o,_orig:o,_last:last,_next:next,_days:days,_status:status,_label:label,_order:order};
+}
+
+function updateKPIs(){
+  const cnt={rot:0,gelb:0,gruen:0,offen:0};
+  data.forEach(o=>cnt[compute(o)._status]++);
+  document.getElementById("c-rot").textContent=cnt.rot;
+  document.getElementById("c-gelb").textContent=cnt.gelb;
+  document.getElementById("c-gruen").textContent=cnt.gruen;
+  document.getElementById("c-offen").textContent=cnt.offen;
+}
+// aktualisiert nur die berechneten Zellen einer Zeile – ohne neu zu sortieren/filtern,
+// damit die gerade bearbeitete Zeile nicht wegspringt
+function patchRow(tr,o){
+  const r=compute(o);
+  tr.className="rowstat-"+r._status;
+  tr.querySelector(".next").textContent=r._next?fmt(r._next):"—";
+  tr.querySelector(".days").textContent=r._days==null?"—":(r._days>0?"in "+r._days+" T.":r._days===0?"heute":Math.abs(r._days)+" T. über");
+  const pill=tr.querySelector(".pill");pill.className="pill "+r._status;pill.textContent=r._label;
+  const clr=tr.querySelector(".clear-date");if(clr)clr.hidden=!o.last;
+  const cb=tr.querySelector(".cleancount");if(cb){const n=log.filter(e=>e.id===o.id).length;cb.textContent=n+" "+(n===1?"Reinigung":"Reinigungen");}
+  updateKPIs();
+  refreshMonthIfOpen();
+}
+
+// ---------- Monatsliste (fällige Reinigungen pro Monat, zum Ausdrucken) ----------
+function refreshMonthIfOpen(){const mc=document.getElementById("monthcard");if(mc&&!mc.hidden)renderMonth();}
+function renderMonth(){
+  const y=monthDate.getFullYear(),m=monthDate.getMonth();
+  document.getElementById("month-title").textContent=MONFULL[m]+" "+y;
+  document.getElementById("month-printhead").textContent="Glasreinigung – fällig im "+MONFULL[m]+" "+y;
+  const mStart=new Date(y,m,1);mStart.setHours(0,0,0,0);
+  const mEnd=new Date(y,m+1,0);mEnd.setHours(0,0,0,0);
+  const rows=data.map(compute).filter(r=>r._next);
+  const over=rows.filter(r=>r._next<mStart).sort((a,b)=>a._next-b._next);
+  const due=rows.filter(r=>r._next>=mStart&&r._next<=mEnd).sort((a,b)=>a._next-b._next);
+  const total=over.length+due.length;
+  document.getElementById("month-count").textContent=total+(total===1?" Objekt fällig":" Objekte fällig");
+  const body=document.getElementById("month-body");
+  if(!total){body.innerHTML='<div class="monthempty">In diesem Monat ist keine Reinigung fällig.</div>';return;}
+  const rowHtml=r=>`<tr>
+      <td><span class="box"></span></td>
+      <td class="m-name">${esc(r.name)}</td>
+      <td class="m-addr">${esc(r.addr)}</td>
+      <td class="m-date">${fmt(r._next)}</td>
+      <td class="m-done"></td></tr>`;
+  let html='<table class="monthtable"><thead><tr><th>✓</th><th>Objekt</th><th>Adresse</th><th>Fällig am</th><th>Erledigt am</th></tr></thead><tbody>';
+  if(over.length)html+='<tr class="grp over"><td colspan="5">Überfällig – noch offen</td></tr>'+over.map(rowHtml).join("");
+  if(due.length)html+='<tr class="grp"><td colspan="5">Fällig im '+MONFULL[m]+'</td></tr>'+due.map(rowHtml).join("");
+  html+='</tbody></table>';
+  body.innerHTML=html;
+}
+
+function render(){
+  const rows=data.map(compute);
+  updateKPIs();
+
+  // Filter + Suche
+  let view=rows.filter(r=>state.filter==="all"||r._status===state.filter);
+  const q=state.search.trim().toLowerCase();
+  if(q)view=view.filter(r=>(r.name+" "+r.addr).toLowerCase().includes(q));
+
+  // Sortierung
+  const k=state.sortKey,dir=state.sortDir;
+  view.sort((a,b)=>{
+    let va,vb;
+    if(k==="name"){va=a.name.toLowerCase();vb=b.name.toLowerCase();}
+    else if(k==="turnus"){va=a.turnus||999;vb=b.turnus||999;}
+    else if(k==="last"){va=a._last?+a._last:Infinity;vb=b._last?+b._last:Infinity;}
+    else if(k==="next"){va=a._next?+a._next:Infinity;vb=b._next?+b._next:Infinity;}
+    else if(k==="days"){va=a._days==null?Infinity:a._days;vb=b._days==null?Infinity:b._days;}
+    else if(k==="statusOrder"){va=a._order;vb=b._order;}
+    if(va<vb)return -1*dir;if(va>vb)return 1*dir;return 0;
+  });
+
+  // Kopf-Pfeile
+  document.querySelectorAll("thead th[data-sort]").forEach(th=>{
+    const arr=th.querySelector(".arr");
+    if(th.dataset.sort===k){th.classList.add("sorted");arr.textContent=dir>0?"▲":"▼";}
+    else{th.classList.remove("sorted");arr.textContent="↕";}
+  });
+
+  const tb=document.getElementById("tbody");tb.innerHTML="";
+  view.forEach(r=>{
+    const orig=r._orig;
+    const cc=log.filter(e=>e.id===r.id).length;
+    const tr=document.createElement("tr");
+    tr.className="rowstat-"+r._status;
+    const turnusSel=`<select class="cell-in" data-f="turnus" aria-label="Turnus">
+        ${[["","–"],[3,"3 Mon."],[4,"4 Mon."],[6,"6 Mon."],[12,"12 Mon."]]
+          .map(([v,t])=>`<option value="${v}" ${String(r.turnus??"")===String(v)?"selected":""}>${t}</option>`).join("")}
+      </select>`;
+    tr.innerHTML=`
+      <td data-label="Nr." class="nr">${r.id}</td>
+      <td data-label="Objekt"><input class="cell-in name" data-f="name" value="${esc(r.name)}" aria-label="Objektname"><button type="button" class="cleancount" title="Alle Reinigungen dieses Objekts im Verlauf anzeigen">${cc} ${cc===1?"Reinigung":"Reinigungen"}</button></td>
+      <td data-label="Adresse"><textarea class="addr-in" data-f="addr" rows="1" aria-label="Adresse">${esc(r.addr)}</textarea></td>
+      <td data-label="Turnus">${turnusSel}</td>
+      <td data-label="Letzte Reinigung"><div class="datewrap"><input type="date" class="cell-in date-in" value="${r.last||""}" aria-label="Letzte Reinigung"><button type="button" class="save-date" hidden>Speichern</button><button type="button" class="clear-date" title="Datum entfernen" aria-label="Datum entfernen"${r.last?"":" hidden"}>✕</button></div></td>
+      <td data-label="Nächste Reinigung" class="next">${r._next?fmt(r._next):"—"}</td>
+      <td data-label="Tage bis fällig" class="days">${r._days==null?"—":(r._days>0?"in "+r._days+" T.":r._days===0?"heute":Math.abs(r._days)+" T. über")}</td>
+      <td data-label="Status"><span class="pill ${r._status}">${r._label}</span></td>
+      <td data-label="Bemerkung"><input class="cell-in" data-f="note" value="${esc(r.note)}" placeholder="—" aria-label="Bemerkung"></td>
+      <td class="td-del"><button class="del" type="button" title="Objekt löschen" aria-label="Objekt löschen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></td>`;
+    // Eingaben binden – Turnus/Name/Adresse/Bemerkung werden sofort gespeichert
+    tr.querySelectorAll("[data-f]").forEach(el=>{
+      const f=el.dataset.f;
+      el.addEventListener("change",()=>{
+        let v=el.value;
+        if(f==="turnus")v=v===""?null:Number(v);
+        orig[f]=v;save();patchRow(tr,orig);
+      });
+    });
+    // Letzte Reinigung: erst per „Speichern“ übernehmen – die bisherige bleibt im Verlauf
+    const dateIn=tr.querySelector(".date-in");
+    const saveBtn=tr.querySelector(".save-date");
+    const refreshSave=()=>{saveBtn.hidden=(dateIn.value===(orig.last||""));};
+    dateIn.addEventListener("input",refreshSave);
+    dateIn.addEventListener("change",refreshSave);
+    saveBtn.addEventListener("click",()=>{
+      const v=dateIn.value;if(!v)return;
+      if(orig.last)addLogEntry(orig,orig.last,"");  // bisherige Reinigung im Verlauf sichern
+      addLogEntry(orig,v,"");                        // neue Reinigung in den Verlauf
+      orig.last=v;save();
+      patchRow(tr,orig);refreshSave();renderLog();
+    });
+    // Datum entfernen (versehentlich gesetzt) -> wieder „Noch offen“, auch aus Verlauf
+    tr.querySelector(".clear-date").addEventListener("click",()=>{
+      const prev=orig.last;
+      orig.last="";
+      if(prev)removeLogEntry(orig.id,prev);
+      save();
+      dateIn.value="";
+      patchRow(tr,orig);refreshSave();renderLog();
+    });
+    // Anzahl der Reinigungen -> Verlauf dieses Objekts öffnen
+    tr.querySelector(".cleancount").addEventListener("click",()=>openLogFor(orig.id));
+    tr.querySelector(".del").addEventListener("click",()=>{
+      askConfirm("Objekt „"+r.name+"“ wirklich löschen?",()=>{        const i=data.indexOf(orig);
+        if(i>-1)data.splice(i,1);
+        save();render();renderLog();
+      });
+    });
+    // Adresse: Höhe automatisch
+    const ta=tr.querySelector(".addr-in");ta.addEventListener("input",()=>autoGrow(ta));
+    tb.appendChild(tr);
+  });
+  requestAnimationFrame(()=>document.querySelectorAll(".addr-in").forEach(autoGrow));
+  document.getElementById("empty").style.display=view.length?"none":"block";
+
+  // Filterhinweis
+  const fn=document.getElementById("fnote");
+  if(state.filter!=="all"||q){
+    fn.innerHTML=`${view.length} von ${data.length} Objekten · <a id="clr">Filter aufheben</a>`;
+    document.getElementById("clr").onclick=()=>{state.filter="all";state.search="";document.getElementById("search").value="";syncTiles();render();};
+  }else fn.textContent=`${data.length} Objekte gesamt`;
+  refreshMonthIfOpen();
+}
+
+// Hilfen
+function esc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function autoGrow(ta){ta.style.height="auto";ta.style.height=ta.scrollHeight+"px";}
+
+// Kacheln als Filter
+function syncTiles(){document.querySelectorAll(".tile").forEach(t=>t.classList.toggle("active",t.dataset.filter===state.filter));}
+document.querySelectorAll(".tile").forEach(t=>{
+  t.addEventListener("click",()=>{
+    state.filter=state.filter===t.dataset.filter?"all":t.dataset.filter;
+    syncTiles();render();
+  });
+});
+// Sortier-Klicks
+document.querySelectorAll("thead th[data-sort]").forEach(th=>{
+  th.addEventListener("click",()=>{
+    const k=th.dataset.sort;
+    if(state.sortKey===k)state.sortDir*=-1;else{state.sortKey=k;state.sortDir=1;}
+    render();
+  });
+});
+// Suche
+document.getElementById("search").addEventListener("input",e=>{state.search=e.target.value;render();});
+// Neues Objekt
+document.getElementById("add").addEventListener("click",()=>{
+  const n=data.length+1;
+  data.unshift({id:"O"+String(Date.now()).slice(-4),name:"Neues Objekt",turnus:6,last:"",note:"",addr:""});
+  state.filter="all";state.search="";document.getElementById("search").value="";syncTiles();save();render();
+  const first=document.querySelector("#tbody input.name");if(first){first.focus();first.select();}
+});
+// Drucken
+document.getElementById("print").addEventListener("click",()=>window.print());
+
+// Monatsliste: öffnen/schließen, blättern, drucken
+const monthcard=document.getElementById("monthcard");
+const monthBtn=document.getElementById("monthBtn");
+monthBtn.addEventListener("click",()=>{
+  monthcard.hidden=!monthcard.hidden;
+  monthBtn.classList.toggle("primary",!monthcard.hidden);
+  if(!monthcard.hidden){renderMonth();monthcard.scrollIntoView({behavior:"smooth",block:"nearest"});}
+});
+document.getElementById("month-prev").addEventListener("click",()=>{monthDate.setMonth(monthDate.getMonth()-1);renderMonth();});
+document.getElementById("month-next").addEventListener("click",()=>{monthDate.setMonth(monthDate.getMonth()+1);renderMonth();});
+document.getElementById("month-print").addEventListener("click",()=>{document.body.classList.add("print-month");window.print();});
+window.addEventListener("afterprint",()=>document.body.classList.remove("print-month"));
+
+// Backup sichern (Export als JSON-Datei)
+document.getElementById("export").addEventListener("click",()=>{
+  const payload={app:"Glasreinigungsplan",version:2,exportedAt:new Date().toISOString(),data,log,seeded};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  const d=new Date();
+  const stamp=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  a.href=url;a.download="Glasreinigungsplan-Backup-"+stamp+".json";
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+// Backup laden (Import aus JSON-Datei)
+document.getElementById("import").addEventListener("click",()=>document.getElementById("import-file").click());
+document.getElementById("import-file").addEventListener("change",e=>{
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    let o;try{o=JSON.parse(reader.result);}catch(err){alert("Die Datei konnte nicht gelesen werden. Bitte eine gültige Backup-Datei (.json) wählen.");return;}
+    if(!o||!Array.isArray(o.data)){alert("Diese Datei ist kein gültiges Glasreinigungsplan-Backup.");return;}
+    askConfirm("Das geladene Backup ersetzt die aktuellen Daten und den Verlauf in diesem Browser.",()=>{
+      data=o.data;log=Array.isArray(o.log)?o.log:[];seeded=o.seeded!==false;save();
+      state.filter="all";state.search="";document.getElementById("search").value="";
+      syncTiles();render();renderLog();
+    },"Backup laden","Backup laden?");
+  };
+  reader.readAsText(file);
+  e.target.value="";
+});
+
+// Zurücksetzen
+document.getElementById("reset").addEventListener("click",()=>{
+  askConfirm("Alle Objekte, Änderungen und der Verlauf werden auf die Ausgangsdaten zurückgesetzt.",()=>{
+    data=JSON.parse(JSON.stringify(DEFAULTS));log=[];save();state.filter="all";state.search="";
+    document.getElementById("search").value="";syncTiles();render();renderLog();
+  },"Zurücksetzen","Ausgangsdaten wiederherstellen?");
+});
+
+/* ---------- Eigener Bestätigungs-Dialog (funktioniert in jeder Umgebung) ---------- */
+const cOverlay=document.getElementById("confirm-overlay");
+let cYes=null;
+function askConfirm(msg,onYes,yesLabel="Löschen",title="Wirklich löschen?"){
+  document.getElementById("confirm-title").textContent=title;
+  document.getElementById("confirm-msg").textContent=msg;
+  document.getElementById("confirm-yes").textContent=yesLabel;
+  cYes=onYes;cOverlay.hidden=false;
+  setTimeout(()=>document.getElementById("confirm-no").focus(),30);
+}
+function closeConfirm(){cOverlay.hidden=true;cYes=null;}
+document.getElementById("confirm-no").addEventListener("click",closeConfirm);
+document.getElementById("confirm-yes").addEventListener("click",()=>{const f=cYes;closeConfirm();if(f)f();});
+cOverlay.addEventListener("click",e=>{if(e.target===cOverlay)closeConfirm();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!cOverlay.hidden)closeConfirm();});
+
+/* ---------- Verlauf (Logbuch) ---------- */
+const logcard=document.getElementById("logcard");
+const logToggleBtn=document.getElementById("logToggle");
+const logFilterSel=document.getElementById("log-filter");
+logFilterSel.addEventListener("change",renderLog);
+
+function renderLog(){
+  // Filter-Dropdown befüllen (alle Objekte, die im Verlauf vorkommen)
+  const ids=[...new Set(log.map(e=>e.id))];
+  const opts=ids.map(id=>{
+    const o=data.find(d=>d.id===id);
+    return{id,name:o?o.name:(log.find(e=>e.id===id)?.name||id)};
+  }).sort((a,b)=>a.name.localeCompare(b.name,"de"));
+  const cur=logFilterSel.value;
+  logFilterSel.innerHTML='<option value="">Alle Objekte</option>'+
+    opts.map(o=>`<option value="${o.id}">${esc(o.name)} (${log.filter(e=>e.id===o.id).length})</option>`).join("");
+  if(opts.some(o=>o.id===cur))logFilterSel.value=cur; else logFilterSel.value="";
+  const fId=logFilterSel.value;
+
+  const entries=log.filter(e=>!fId||e.id===fId);
+  const cnt=document.getElementById("logcount");
+  if(!log.length)cnt.textContent="";
+  else if(fId)cnt.textContent=entries.length+(entries.length===1?" Reinigung":" Reinigungen");
+  else cnt.textContent=log.length+(log.length===1?" Eintrag":" Einträge");
+
+  const body=document.getElementById("logbody");body.innerHTML="";
+  if(!log.length){body.innerHTML='<div class="logempty">Noch keine Einträge. Über „Reinigung eintragen“ (oder das Datumsfeld in der Tabelle) hältst du fest, wann welches Objekt gereinigt wurde – auch mehrfach pro Objekt.</div>';return;}
+  if(!entries.length){body.innerHTML='<div class="logempty">Für dieses Objekt ist noch keine Reinigung erfasst.</div>';return;}
+  entries.slice().sort((a,b)=>b.date.localeCompare(a.date)).forEach(entry=>{
+    const i=log.indexOf(entry);
+    const d=parse(entry.date);
+    const row=document.createElement("div");row.className="logitem";
+    row.innerHTML=`
+      <span class="ldate">${d?fmt(d):entry.date}</span>
+      <span class="lname">${esc(entry.name)}</span>
+      <span class="lnote">${esc(entry.note||"")}</span>
+      <button class="del" type="button" title="Eintrag löschen" aria-label="Eintrag löschen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button>`;
+    row.querySelector(".del").addEventListener("click",()=>{log.splice(i,1);save();renderLog();render();});
+    body.appendChild(row);
+  });
+}
+// Verlauf für ein bestimmtes Objekt öffnen
+function openLogFor(id){
+  logcard.hidden=false;logToggleBtn.classList.add("primary");
+  renderLog();logFilterSel.value=id;renderLog();
+  logcard.scrollIntoView({behavior:"smooth",block:"start"});
+}
+logToggleBtn.addEventListener("click",()=>{
+  logcard.hidden=!logcard.hidden;
+  logToggleBtn.classList.toggle("primary",!logcard.hidden);
+  if(!logcard.hidden){renderLog();logcard.scrollIntoView({behavior:"smooth",block:"nearest"});}
+});
+
+/* ---------- Modal „Reinigung eintragen“ ---------- */
+const overlay=document.getElementById("overlay");
+function openModal(){
+  const sel=document.getElementById("m-obj");
+  sel.innerHTML=data.slice().sort((a,b)=>a.name.localeCompare(b.name,"de"))
+    .map(o=>`<option value="${o.id}">${esc(o.name)}</option>`).join("");
+  const today=new Date();
+  document.getElementById("m-date").value=
+    today.getFullYear()+"-"+String(today.getMonth()+1).padStart(2,"0")+"-"+String(today.getDate()).padStart(2,"0");
+  document.getElementById("m-note").value="";
+  overlay.hidden=false;
+  setTimeout(()=>sel.focus(),30);
+}
+function closeModal(){overlay.hidden=true;}
+document.getElementById("logBtn").addEventListener("click",openModal);
+document.getElementById("m-cancel").addEventListener("click",closeModal);
+overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!overlay.hidden)closeModal();});
+document.getElementById("m-save").addEventListener("click",()=>{
+  const id=document.getElementById("m-obj").value;
+  const date=document.getElementById("m-date").value;
+  const note=document.getElementById("m-note").value.trim();
+  if(!date){alert("Bitte ein Datum auswählen.");return;}
+  const obj=data.find(o=>o.id===id);
+  if(!obj){alert("Bitte ein Objekt auswählen.");return;}
+  // letzte Reinigung aktualisieren (nur wenn neuer / noch leer)
+  if(!obj.last||date>obj.last)obj.last=date;
+  addLogEntry(obj,date,note);
+  save();render();renderLog();closeModal();
+  logcard.hidden=false;logToggleBtn.classList.add("primary");
+});
+
+render();renderLog();
+</script>
+</body>
+</html>
